@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-import BlackCard from "../models/BlackCard";
+import WhiteCard from "../models/WhiteCard";
 import ApiError from "../utils/ApiError";
 
-const _repository = mongoose.model("BlackCard", BlackCard);
+const _repository = mongoose.model("WhiteCard", WhiteCard);
 
-class BlackCardsService {
+class WhiteCardsService {
   async getAll() {
     return await _repository.find({});
   }
@@ -24,11 +24,12 @@ class BlackCardsService {
     let data = await _repository.findOneAndUpdate({ _id: id }, rawData, {
       new: true
     });
+    return data;
     if (!data) {
       throw new ApiError("Invalid ID", 400);
     }
   }
 }
 
-const blackCardsService = new BlackCardsService();
-export default blackCardsService;
+const whiteCardsService = new WhiteCardsService();
+export default whiteCardsService;
