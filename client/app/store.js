@@ -1,17 +1,19 @@
-import Value from "./Models/Value.js";
+import Post from "./Models/Post.js";
 
 let _state = {
-  activeValue: new Value({ title: "Value" }),
-  /** @type {Value[]} */
-  values: []
+  /*** @type {Post[]} */
+  overlayPost: [],
+  /** @type {Post[]} */
+  posts: [],
+  user: { name:"Jonny Boy", id: "dajf7s6d5fdgbuty4q6g2783oi", avatar:"linkToAvatar" }
 };
 
 /** Collection of listeners to be called based on keyed state changes
  * @type {{[x:string]: function[]}}
  */
 let _listeners = {
-  activeValue: [],
-  values: []
+  overlayPost: [],
+  posts: []
 };
 
 //NOTE You should not need to change the code from this point down
