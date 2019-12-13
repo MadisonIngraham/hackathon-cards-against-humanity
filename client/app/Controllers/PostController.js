@@ -32,7 +32,6 @@ export default class PostController {
     store.subscribe("posts", _drawPosts);
     store.subscribe("overlayPost", _drawOverlay);
     _drawPosts();
-    this.getRandomBlack();
   }
 
   getPosts(event) {
