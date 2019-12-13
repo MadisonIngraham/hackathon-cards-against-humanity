@@ -14,7 +14,7 @@ function _drawPosts() {
 // Reddit style overlay.
 function _drawOverlay() {
 	let post = store.State.overlayPost;
-  import Post from "../Models/Post";
+  // import Post from "../Models/Post";
 
 //Private
 function _drawPosts() {
