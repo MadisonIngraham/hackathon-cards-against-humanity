@@ -18,6 +18,11 @@ server.use(express.static(__dirname + "/../client"));
 //NOTE Allows requests from the port 8080, add additional addresses as needed
 var whitelist = ["http://localhost:8080"];
 var corsOptions = {
+	origin: function (origin, callback) {
+		var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+		callback(null, originIsWhitelisted);
+	},
+	credentials: true
   origin: function (origin, callback) {
     var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
     callback(null, originIsWhitelisted);
@@ -38,6 +43,7 @@ server.use(bp.json());
 import blackCardsController from "./controllers/BlackCardsController";
 import whiteCardsController from "./controllers/WhiteCardsController";
 import usersController from "./controllers/UsersController";
+import ApiController from "./controllers/ApiController"
 // import usersController from "./controllers/UsersController";
 
 //NOTE remember the forward slash at the start of your path!
@@ -45,19 +51,20 @@ import usersController from "./controllers/UsersController";
 server.use("/api/posts", new blackCardsController().router);
 server.use("/api/comments", new whiteCardsController().router);
 server.use("/api/users", new usersController().router);
+server.use("/api/random", new ApiController().router);
 
 //NOTE Everything below this line always stays the same
 
 //NOTE Default error handler, catches all routes with an error attached
 server.use((error, req, res, next) => {
-  res.status(error.status || 400).send({ error: { message: error.message } });
+	res.status(error.status || 400).send({ error: { message: error.message } });
 });
 
 //NOTE Catch all to insure to return 404 if recieved a bad route
 server.use((req, res, next) => {
-  res.status(404).send("Route not found");
+	res.status(404).send("Route not found");
 });
 
 server.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
+	console.log(`Server is running on port: ${port}`);
 });
