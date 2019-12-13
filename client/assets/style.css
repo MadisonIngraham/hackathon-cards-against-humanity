@@ -6936,7 +6936,10 @@
  }
  
  .border {
+   border: 1px solid #000000 !important;
+=======
    border: 1px solid #eceeef !important;
+
  }
  
  .border-top {
@@ -10623,4 +10626,28 @@
  .card-title, .card-header {
    color: inherit;
  }
+
+ .black-card {
+  background-color: black;
+  border-radius: 10px;
+  padding: 18pt;
+  height: 35vh;
+  color: white;
+  width: 15rem; 
+ }
+
+ .white-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 18pt;
+  height: 35vh;
+  color: black;
+  width: 15rem; 
+ }
+
+ .icon {
+  height: 35pt;
+  border-radius: 25px;
+}
+ 
  

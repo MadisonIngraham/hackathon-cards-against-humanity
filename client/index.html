@@ -16,9 +16,106 @@
     <title>HACK-A-THON: Cards Against Humanity</title>
   </head>
   <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <nav
+            class="navbar navbar-expand-lg navbar-dark bg-primary d-flex justify-content-between"
+          >
+            <a class="navbar-brand" href="#">CARDS AGAINST HUMANITY</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarColor01"
+              aria-controls="navbarColor01"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- <div class="collapse navbar-collapse" id="navbarColor01">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#"
+                    >Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+              </ul> -->
+
+            <form class="form-inline my-2 my-lg-0">
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="Search"
+              />
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                Search
+              </button>
+            </form>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 mt-5">
+          <h5>Create New Post</h5>
+          <div class="d-flex">
+            <button type="button" class="btn btn-primary">+ GET RANDOM</button>
+            <!-- <form class="form-inline my-lg-0">
+              <input
+                      id="new-post-content"
+            <button type="button" class="btn btn-primary">+</button>
+            <form class="form-inline my-lg-0">
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="Search Keyword"
+              />
+            </form> -->
+            </form>
+          </div>
+        </div>
+
+        <div class="col-9 mt-3">
+          <div class="post d-flex" id="black-card">
+            <div><img src="https://picsum.photos/200" class="icon mr-2" /></div>
+            <div class="mt-2 black-card">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam,
+                perspiciatis autem tempora, coat hanger abortions.
+              </p>
+            </div>
+          </div>
+
+          <!-- <div class="d-flex mt-3">
+            <button type="button" class="btn btn-primary">+</button>
+            <form class="form-inline my-lg-0">
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="Search Keyword"
+              />
+            </form>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app/main.js" type="module"></script>
   </body>
 </html>
