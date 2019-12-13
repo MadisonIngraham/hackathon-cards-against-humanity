@@ -11,6 +11,11 @@ function _drawPosts() {
   postDraw.innerHTML = template;
 }
 
+// Reddit style overlay.
+function _drawOverlay() {
+	let post = store.State.overlayPost;
+  // import Post from "../Models/Post";
+
 //Private
 // function _drawPosts() {
 //   let posts = store.State.posts;
