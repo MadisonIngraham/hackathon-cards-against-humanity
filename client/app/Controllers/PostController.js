@@ -1,6 +1,20 @@
 import PostService from "../Services/PostService.js";
 import store from "../store.js";
-import Post from "../Models/Post";
+import Post from "../Models/Post.js";
+
+//Private
+function _drawPosts() {
+	let postDraw = document.getElementById('black-card');
+	let posts = store.State.posts;
+	let template = '';
+	posts.forEach(cur=>template+=cur.postTemplate);
+	postDraw.innerHTML = template;
+}
+
+// Reddit style overlay.
+function _drawOverlay() {
+	let post = store.State.overlayPost;
+  import Post from "../Models/Post";
 
 //Private
 function _drawPosts() {

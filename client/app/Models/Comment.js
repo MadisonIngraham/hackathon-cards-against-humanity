@@ -12,7 +12,7 @@ export default class Post {
 		<div class="mt-2 white-card border">
 		<p>${this.title}</p>
 		</div>
-		
+		<form action=""></form>
 		</div>
         `
 
