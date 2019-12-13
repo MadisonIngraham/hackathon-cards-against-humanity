@@ -11,10 +11,6 @@ function _drawPosts() {
   postDraw.innerHTML = template;
 }
 
-// Reddit style overlay.
-// function _drawOverlay() {
-//   let post = store.State.overlayPost;
-// }
 //Private
 // function _drawPosts() {
 //   let posts = store.State.posts;
@@ -32,6 +28,7 @@ export default class PostController {
     store.subscribe("posts", _drawPosts);
     store.subscribe("overlayPost", _drawOverlay);
     _drawPosts();
+    this.getRandomBlack();
   }
 
   getPosts(event) {
