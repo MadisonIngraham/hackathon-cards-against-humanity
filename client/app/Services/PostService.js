@@ -16,6 +16,8 @@ class PostService {
 		console.log(store.State.posts)
 	}
 
+=======
+class PostService {
 	getPosts () {
 		_api.get('/posts')
 			.then(res =>{

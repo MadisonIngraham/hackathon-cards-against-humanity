@@ -14,6 +14,17 @@ function _drawPosts() {
 // Reddit style overlay.
 function _drawOverlay() {
 	let post = store.State.overlayPost;
+  import Post from "../Models/Post";
+
+//Private
+function _drawPosts() {
+	let posts = store.State.posts;
+	console.log(posts);
+}
+
+function _drawOverlay() {
+	let post = store.State.overlayPost;
+	console.log(post);
 }
 
 //Public
