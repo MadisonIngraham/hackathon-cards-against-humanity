@@ -6937,6 +6937,9 @@
  
  .border {
    border: 1px solid #000000 !important;
+=======
+   border: 1px solid #eceeef !important;
+
  }
  
  .border-top {
@@ -10647,6 +10650,4 @@
   border-radius: 25px;
 }
  
-
-
  
