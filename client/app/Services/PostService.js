@@ -7,7 +7,15 @@ let _api = axios.create({
 	timeout: 5000
 });
 
+
 class PostService {
+	constructor () {
+		for(let i=0;i<5;i++){
+			store.State.posts.push(new Post({title:'lorem ipsum', id:1 }))
+		}
+		console.log(store.State.posts)
+	}
+
 	getPosts () {
 		_api.get('/posts')
 			.then(res =>{
