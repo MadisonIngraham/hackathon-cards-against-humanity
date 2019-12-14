@@ -17,7 +17,8 @@ export default class RandomApiController {
   async getAll(req, res, next) {
     try {
       let data = await api.get("");
-      return res.send(data);
+      console.log(data);
+      return res.send(data.data.data[0]);
     } catch (error) {
       next(error);
     }
