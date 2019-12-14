@@ -12,9 +12,6 @@ function _drawPosts() {
 }
 
 // Reddit style overlay.
-function _drawOverlay() {
-	let post = store.State.overlayPost;
-  // import Post from "../Models/Post";
 
 //Private
 // function _drawPosts() {
@@ -33,7 +30,6 @@ export default class PostController {
     store.subscribe("posts", _drawPosts);
     store.subscribe("overlayPost", _drawOverlay);
     _drawPosts();
-    this.getRandomBlack();
   }
 
   getPosts(event) {
@@ -51,9 +47,9 @@ export default class PostController {
       console.error(error);
     }
   }
-  async getRandomBlack() {
+  async getRandom() {
     try {
-      await PostService.getRandomBlack();
+      await PostService.getRandom();
     } catch (error) {
       console.error(error);
     }
