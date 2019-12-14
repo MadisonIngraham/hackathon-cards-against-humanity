@@ -1,5 +1,6 @@
 import express from "express";
 import blackCardsService from "../services/BlackCardsService";
+import whiteCardsService from "../services/WhiteCardsService";
 
 export default class BlackCardsController {
 	constructor() {
@@ -8,9 +9,11 @@ export default class BlackCardsController {
 			//NOTE  each route gets registered as a .get, .post, .put, or .delete, the first parameter of each method is a string to be concatinated onto the base url registered with the route in main. The second parameter is the method that will be run when this route is hit.
 			.get("", this.getAll)
 			.get("/:id", this.getById)
+			.get("/:id/comments", this.getCommentsByPostId)
 			.post("", this.create)
 			.delete("/:id", this.delete)
-			.put("/:id", this.edit);
+			.put("/:id", this.edit)
+			.put("/:id/like", this.likePost);
 	}
 
 	async getAll(req, res, next) {
@@ -51,6 +54,20 @@ export default class BlackCardsController {
 			return res.send(data);
 		} catch (error) {
 			next(error);
+		}
+	}
+
+	async getCommentsByPostId(req, res, next) {
+		let comments = await whiteCardsService.getByPostId(req.params.id);
+		return res.send(comments);
+	}
+
+	async likePost(req, res, next) {
+		try {
+			await blackCardsService.edit(req.params.id, {likes:req.body.likes});
+			return res.send();
+		} catch (e) {
+			next(e)
 		}
 	}
 }

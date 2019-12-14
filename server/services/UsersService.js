@@ -8,16 +8,19 @@ class UsersService {
 	async getAllUsers () {
 		return await _repository.find({});
 	}
+
 	async getByName(name) {
-		let data = await _repository.findOne({ name });
-		if (!data) {
-			throw new ApiError("Invalid ID", 400);
-		}
-		return data;
+		return await _repository.findOne({ name });
 	}
+
+	async getById(id) {
+		return await _repository.findOne({ _id: id });
+	}
+
 	async create(rawData) {
 		return await _repository.create(rawData);
 	}
+
 	async edit(name, update) {
 		let data = await _repository.findOneAndUpdate({ name }, update, {
 			new: true
@@ -27,6 +30,7 @@ class UsersService {
 		}
 		return data;
 	}
+
 	async delete(name) {
 		let data = await _repository.findOneAndDelete({ name });
 		if (!data) {
