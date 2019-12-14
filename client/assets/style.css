@@ -10668,3 +10668,12 @@
 #get-random-btn {
   width: 15rem;
 }
+
+.post {
+  justify-content: space-around;
+}
+
+.fas {
+  color: red;
+}
+

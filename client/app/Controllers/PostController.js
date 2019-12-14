@@ -32,8 +32,12 @@ export default class PostController {
     this.getPosts();
   }
 
-  getPosts() {
-    PostService.getPosts();
+  async getPosts() {
+    try {
+      PostService.getPosts();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   // Used for looking at specific post, reddit style overlay.
@@ -75,5 +79,11 @@ export default class PostController {
     store.State.posts.indexOf();
   }
 
-  deletePost(id) {}
+  async deletePost(id) {
+    try {
+      await postService.deletePost(id);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
