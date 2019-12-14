@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
+
 const WhiteCard = new Schema({
     cardText: { type: String, required: true },
-    score: { type: Number, default: 0 },
+    likes: [String],
     userId: { type: ObjectId, ref: "User", required: true },
     blackCardId: { type: ObjectId, ref: "BlackCard", required: true }
   },
