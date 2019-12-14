@@ -7,12 +7,7 @@ let _api = axios.create({
 });
 
 class PostService {
-  constructor() {
-    for (let i = 0; i < 5; i++) {
-      store.State.posts.push(new Post({ title: "lorem ipsum", id: 1 }));
-    }
-    console.log(store.State.posts);
-  }
+  constructor() {}
   getPosts() {
     _api
       .get("/posts")
@@ -30,7 +25,8 @@ class PostService {
   }
   async getRandom() {
     let data = await _api.get("/random");
-    console.log(data);
+    return data.data.black.content;
+    console.log(data.data.black.content);
   }
 
   getPostId(id) {
@@ -40,6 +36,14 @@ class PostService {
         return res.data;
       })
       .catch(e => console.error(e));
+  }
+
+  async createPost(newPost) {
+    let res = await _api.post("/posts", newPost);
+    let post = new Post(newPost);
+    let realPosts = [...store.State.posts, post];
+    store.commit("posts", realPosts);
+    console.log(res);
   }
 }
 

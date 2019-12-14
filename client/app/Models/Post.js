@@ -1,6 +1,6 @@
 export default class Post {
   constructor(data) {
-    this.title = data.title || data.content;
+    this.cardText = data.cardText || data.content;
     this.comments = data.comments || "No comments";
     this.id = data._id;
     this.user = data.userId;
@@ -11,7 +11,7 @@ export default class Post {
 	  <div><img src="https://picsum.photos/200" class="icon mr-2" /></div>
             <div class="mt-2 black-card">
               <p>
-                ${this.title}
+                ${this.cardText}
               </p>
             </div>
 	

@@ -1,14 +1,14 @@
 import PostService from "../Services/PostService.js";
 import store from "../store.js";
 import Post from "../Models/Post.js";
+import postService from "../Services/PostService.js";
 
 //Private
 function _drawPosts() {
-  let postDraw = document.getElementById("black-card");
-  let posts = store.State.posts;
   let template = "";
-  posts.forEach(cur => (template += cur.postTemplate));
-  postDraw.innerHTML = template;
+  let posts = store.State.posts;
+  posts.forEach(post => (template += post.postTemplate));
+  document.getElementById("black-card").innerHTML = template;
 }
 
 // Reddit style overlay.
@@ -29,12 +29,10 @@ export default class PostController {
   constructor() {
     store.subscribe("posts", _drawPosts);
     store.subscribe("overlayPost", _drawOverlay);
-    _drawPosts();
+    this.getPosts();
   }
 
-  getPosts(event) {
-    event.preventDefault();
-
+  getPosts() {
     PostService.getPosts();
   }
 
@@ -49,15 +47,27 @@ export default class PostController {
   }
   async getRandom() {
     try {
-      await PostService.getRandom();
+      let data = await PostService.getRandom();
+      document.getElementById("custom-black-card-text").innerText = data;
     } catch (error) {
-      console.error(error);
+      document.getElementById("custom-black-card-text").innerText =
+        "Create Your Own or Get Random!";
     }
   }
 
   // We need to pass the userId and the data through.
-  createPost(userId, data) {
-    PostService.createPost(userId, data);
+  async createPost(event) {
+    try {
+      event.preventDefault();
+      let formData = event.target;
+      let newPost = {
+        cardText: formData.cardText.value,
+        userId: "5df3fecf6e92683b5840e5d0"
+      };
+      await PostService.createPost(newPost);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async editPost(id, data) {

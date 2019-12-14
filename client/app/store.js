@@ -5,7 +5,12 @@ let _state = {
   overlayPost: [],
   /** @type {Post[]} */
   posts: [],
-  user: { name:"Jonny Boy", id: "dajf7s6d5fdgbuty4q6g2783oi", avatar:"linkToAvatar" }
+
+  user: {
+    name: "Jonny Boy",
+    id: "dajf7s6d5fdgbuty4q6g2783oi",
+    avatar: "linkToAvatar"
+  }
 };
 
 /** Collection of listeners to be called based on keyed state changes
