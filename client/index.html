@@ -70,8 +70,15 @@
       <div class="row">
         <div class="col-3 mt-5">
           <h5>Create New Post</h5>
-          <div class="d-flex">
-            <button type="button" class="btn btn-primary" onclick="app.postController.getRandom()">+ GET RANDOM</button>
+          <div class="d-flex flex-column">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="app.postController.getRandom()"
+              id="get-random-btn"
+            >
+              + GET RANDOM
+            </button>
             <!-- <form class="form-inline my-lg-0">
               <input
                       id="new-post-content"
@@ -83,14 +90,29 @@
                 placeholder="Search Keyword"
               />
             </form> -->
-            </form>
+
+            <div class="post d-flex ">
+              <div
+                class="mt-2 black-card d-flex flex-column justify-content-between "
+              >
+                <form
+                  id="custom-black-card"
+                  onsubmit="app.postController.createPost(event)"
+                >
+                  <textarea id="custom-black-card-text" name="cardText">
+Create Your Own or Get Random!</textarea
+                  >
+                  <button type="submit" class="btn btn-secondary">
+                    + CREATE POST
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="col-9 mt-3">
-          <div class="post d-flex" id="black-card">
-          
-          </div>
+          <div class="post d-flex" id="black-card"></div>
 
           <!-- <div class="d-flex mt-3">
             <button type="button" class="btn btn-primary">+</button>
