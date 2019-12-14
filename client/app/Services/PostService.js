@@ -15,9 +15,9 @@ class PostService {
         console.log("Returned data from get posts:", res);
         let posts = store.State.posts;
         console.log("Posts in store:", posts);
-        res.data.map(cur => posts.push(new Post(cur)));
-        console.log("Posts form store and get():", posts);
-        store.commit("posts", posts);
+        let tempPosts = res.data.map(cur => new Post(cur));
+        console.log("Posts form store and get():", tempPosts);
+        store.commit("posts", tempPosts);
       })
       .catch(e => {
         console.error(e);
@@ -26,7 +26,6 @@ class PostService {
   async getRandom() {
     let data = await _api.get("/random");
     return data.data.black.content;
-    console.log(data.data.black.content);
   }
 
   getPostId(id) {
@@ -40,10 +39,19 @@ class PostService {
 
   async createPost(newPost) {
     let res = await _api.post("/posts", newPost);
-    let post = new Post(newPost);
+    debugger;
+    let post = new Post(res.data);
     let realPosts = [...store.State.posts, post];
     store.commit("posts", realPosts);
     console.log(res);
+  }
+
+  async deletePost(id) {
+    let indexOfDeleted = store.State.posts.findIndex(elem => elem.id == id);
+    let realPosts = [...store.State.posts];
+    realPosts.splice(indexOfDeleted, 1);
+    await _api.delete("/posts/" + id);
+    store.commit("posts", realPosts);
   }
 }
 
