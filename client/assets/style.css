@@ -10633,7 +10633,7 @@
   padding: 18pt;
   height: 35vh;
   color: white;
-  width: 15rem; 
+  width: 12rem; 
  }
 
  .white-card {
@@ -10642,7 +10642,7 @@
   padding: 18pt;
   height: 35vh;
   color: black;
-  width: 15rem; 
+  width: 12rem; 
  }
 
  .icon {
@@ -10675,5 +10675,20 @@
 
 .fas {
   color: red;
+}
+
+#custom-white-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  height: 100%;
+  justify-content: space-between;
+}
+ 
+#custom-white-card-text {
+  background-color: rgba(0, 0, 0, 0);
+    color: black;
+    border-width: 0;
+    height: -webkit-fill-available; 
 }
 

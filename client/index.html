@@ -117,7 +117,7 @@ Create Your Own or Get Random!</textarea
           </div>
         </div>
 
-        <div class="col-9 mt-3">
+        <div class="col-6 mt-3">
           <div class="post d-flex flex-wrap" id="black-card"></div>
 
           <!-- <div class="d-flex mt-3">
@@ -130,6 +130,34 @@ Create Your Own or Get Random!</textarea
               />
             </form>
           </div> -->
+        </div>
+        <div class="col-3 mt-5">
+          <div class="d-flex flex-column">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="app.CommentsController.getRandomWhite()"
+              id="get-random-white-card"
+            >
+              + GET RANDOM
+            </button>
+
+            <div class="comment d-flex" id="white-card">
+              <div class="mt-2 white-card border">
+                <form
+                  id="custom-white-card"
+                  onsubmit="app.postController.createComment(event)"
+                >
+                  <textarea id="custom-white-card-text" name="">
+Create Your Own or Get Random!</textarea
+                  >
+                  <button type="submit" class="btn btn-primary">
+                    + COMMENT
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
